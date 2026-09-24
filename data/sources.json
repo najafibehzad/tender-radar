@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24T15:44:13.564Z",
+  "updatedAt": "2026-09-24T17:03:22.289Z",
   "settings": {
     "scanIntervalMinutes": 20,
     "requestTimeoutMs": 30000,
-    "maxItemsPerSource": 30,
+    "maxItemsPerSource": 100,
     "lookbackDays": 20,
     "autoScanOnStart": true,
     "targetOnly": false,
@@ -241,14 +241,40 @@
       "setadMaxPages": 25,
       "note": "سامانهٔ تدارکات الکترونیکی دولت — کدهای شهر از پروژهٔ دیده‌بان (تأییدشده). مسیر API + مسیر پشتیبان HTML (تابلوی عمومی etend). ⚠️ دسترسی فقط از داخل ایران.",
       "setadCities": [
-        { "province": "البرز", "city": "کرج", "id": "99" },
-        { "province": "البرز", "city": "فردیس", "id": "444" },
-        { "province": "تهران", "city": "قدس", "id": "369" },
-        { "province": "تهران", "city": "شهریار", "id": "206" },
-        { "province": "تهران", "city": "رباط کریم", "id": "258" },
-        { "province": "تهران", "city": "تهران", "id": "19" }
+        {
+          "province": "البرز",
+          "city": "کرج",
+          "id": "99"
+        },
+        {
+          "province": "البرز",
+          "city": "فردیس",
+          "id": "444"
+        },
+        {
+          "province": "تهران",
+          "city": "قدس",
+          "id": "369"
+        },
+        {
+          "province": "تهران",
+          "city": "شهریار",
+          "id": "206"
+        },
+        {
+          "province": "تهران",
+          "city": "رباط کریم",
+          "id": "258"
+        },
+        {
+          "province": "تهران",
+          "city": "تهران",
+          "id": "19"
+        }
       ],
-      "setadKinds": ["مناقصه"],
+      "setadKinds": [
+        "مناقصه"
+      ],
       "setadHtmlFallback": [
         "https://etend.setadiran.ir/etend/index.action",
         "https://etend.setadiran.ir/etend/centralboard-execute.action"
@@ -330,7 +356,7 @@
     {
       "id": "qods",
       "name": "شهرداری قدس",
-      "city": "شهر قدس",
+      "city": "قدس",
       "province": "تهران",
       "type": "شهرداری",
       "url": "https://shahrdariqods.ir",

@@ -111,16 +111,19 @@ function filterItems(items, q) {
 }
 
 function buildFacets(items) {
-  const facet = (key) => {
+  const facet = (key, normalize) => {
     const m = new Map();
     for (const it of items) {
-      const v = it[key];
+      let v = it[key];
       if (!v) continue;
+      if (normalize) v = normalize(v);
       m.set(v, (m.get(v) || 0) + 1);
     }
     return [...m.entries()].map(([value, count]) => ({ value, count })).sort((a, b) => b.count - a.count);
   };
-  return { city: facet('city'), province: facet('province'), kind: facet('kind'), source: facet('sourceName') };
+  // یکسان‌سازی نام شهر: حذف پیشوند «شهر » (مثلاً «شهر قدس» → «قدس»)
+  const normCity = (c) => c.replace(/^شهر\s+/, '');
+  return { city: facet('city', normCity), province: facet('province'), kind: facet('kind'), source: facet('sourceName') };
 }
 
 // ---------- پاسخ‌دهی ----------
