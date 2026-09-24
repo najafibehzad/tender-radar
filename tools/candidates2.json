@@ -1,0 +1,13 @@
+[
+  { "key": "shahriar", "name": "شهریار", "province": "تهران", "type": "شهرداری", "urls": ["https://shahriarcity.ir"] },
+  { "key": "eslamshahr", "name": "اسلامشهر", "province": "تهران", "type": "شهرداری", "urls": ["https://www.eslamshahr.ir"] },
+  { "key": "varamin", "name": "ورامین", "province": "تهران", "type": "شهرداری", "urls": ["https://evaramin.ir"] },
+  { "key": "gharchak", "name": "قرچک", "province": "تهران", "type": "شهرداری", "urls": ["https://www.gharchak.ir"] },
+  { "key": "shahr", "name": "شهر (شهر.ir)", "province": "تهران", "type": "شهرداری", "urls": ["https://shahr.ir"] },
+  { "key": "karajemrouz", "name": "کرج امروز", "province": "البرز", "type": "خبری", "urls": ["https://www.karajemrouz.ir"] },
+  { "key": "ariatender", "name": "آریاتندر", "province": "کشور", "type": "تجمیع‌کننده", "urls": ["https://ariatender.net"] },
+  { "key": "tenderlens", "name": "تندرلنز", "province": "کشور", "type": "تجمیع‌کننده", "urls": ["https://tenderlens.ir"] },
+  { "key": "parsnamad", "name": "پارس‌نماد", "province": "کشور", "type": "تجمیع‌کننده", "urls": ["https://www.parsnamaddata.com"] },
+  { "key": "savojbolagh", "name": "ساوجبلاغ", "province": "البرز", "type": "شهرداری", "urls": ["https://savojbolagh.ir", "https://www.savojbolagh.ir", "https://shahrdarisavojbolagh.ir"] },
+  { "key": "nazarabad", "name": "نظرآباد", "province": "البرز", "type": "شهرداری", "urls": ["https://nazarabad.ir", "https://www.nazarabad.ir", "https://shahrdarinazarabad.ir"] }
+]

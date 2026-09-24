@@ -1,0 +1,423 @@
+[
+  {
+    "key": "chaharbagh",
+    "name": "چهارباغ",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://chaharbagh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarichaharbagh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "nazarabad2",
+    "name": "نظرآباد",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://nazarabadcity.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarinazarabad.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://nazarabad.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "hashtgerd",
+    "name": "هشتگرد",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://hashtgerd.ir",
+        "status": 200,
+        "finalUrl": "https://hashtgerd.ir/",
+        "title": "پرتال شهرداری هشتگرد",
+        "len": 154620,
+        "generator": "Redux 4.5.15",
+        "api": "html"
+      }
+    ]
+  },
+  {
+    "key": "mohammadshahr",
+    "name": "محمدشهر",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://mohammadshahr.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarimohammadshahr.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "garmdareh",
+    "name": "گرمدره",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://garmdareh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarigarmdareh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "kamalshahr",
+    "name": "کمال‌شهر",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://kamalshahr.ir",
+        "status": 200,
+        "finalUrl": "https://kamalshahr.ir/",
+        "title": "شهرداری کمالشهر",
+        "len": 116178,
+        "generator": "Dourtal ECM",
+        "api": "html"
+      }
+    ]
+  },
+  {
+    "key": "mahdasht",
+    "name": "ماهدشت",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://mahdasht.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarimahdasht.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "taleghan",
+    "name": "طالقان",
+    "province": "البرز",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://taleghan.ir",
+        "status": 200,
+        "finalUrl": "https://taleghan.ir/",
+        "title": "پرتال شهرداری طالقان",
+        "len": 108173,
+        "generator": "WordPress 7.1.1",
+        "api": "wp-json",
+        "wpTotal": 1,
+        "wpSearchHits": 5
+      }
+    ]
+  },
+  {
+    "key": "damavand",
+    "name": "دماوند",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://damavand.ir",
+        "status": 200,
+        "finalUrl": "https://damavand.ir/",
+        "title": "دماوند",
+        "len": 116908,
+        "generator": "",
+        "api": "html"
+      }
+    ]
+  },
+  {
+    "key": "golestan",
+    "name": "گلستان",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://golestanshahr.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarigolestan.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "andisheh",
+    "name": "اندیشه",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://andisheh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdariandisheh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "pardis2",
+    "name": "پردیس",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://shahrdaripardis.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://pardiscity.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://pardis.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "pishva2",
+    "name": "پیشوا",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://pishvacity.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdaripishva.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://pishva.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "vahidieh",
+    "name": "وحیدیه",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://vahidieh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarivahidieh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "salehieh",
+    "name": "صالحیه",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://salehieh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdarisalehieh.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "nasimshahr",
+    "name": "نسیم‌شهر",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://nasimshahr.ir",
+        "status": 200,
+        "finalUrl": "https://nasimshahr.ir/",
+        "title": "نسیم شهر",
+        "len": 169815,
+        "generator": "WordPress 7.1.2",
+        "api": "wp-json",
+        "wpTotal": 1,
+        "wpSearchHits": 0
+      }
+    ]
+  },
+  {
+    "key": "sabashahr",
+    "name": "صباشهر",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://sabashahr.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "rudhen",
+    "name": "رودهن",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://roudhen.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdariroudhen.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "firuzkuh",
+    "name": "فیروزکوه",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://firuzkuh.ir",
+        "status": 200,
+        "finalUrl": "https://firuzkuh.ir/",
+        "title": "صفحه اصلی - شهرداری فیروزکوه",
+        "len": 300653,
+        "generator": "Powered by WPBakery Page Builder - drag and drop page builder for WordPress.",
+        "api": "wp-json",
+        "wpTotal": 1,
+        "wpSearchHits": 5
+      }
+    ]
+  },
+  {
+    "key": "bumehen",
+    "name": "بومهن",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://bumehen.ir",
+        "status": 0,
+        "error": "fetch failed"
+      },
+      {
+        "url": "https://shahrdaribumehen.ir",
+        "status": 0,
+        "error": "fetch failed"
+      }
+    ]
+  },
+  {
+    "key": "shahedshahr",
+    "name": "شاهدشهر",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://shahedshahr.ir",
+        "status": 200,
+        "finalUrl": "https://shahedshahr.ir/",
+        "title": "شهرداری شاهدشهر",
+        "len": 84493,
+        "generator": "",
+        "api": "html"
+      }
+    ]
+  },
+  {
+    "key": "nasirshahr",
+    "name": "نصیرشهر",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://nasirshahr.ir",
+        "status": 200,
+        "finalUrl": "https://nasirshahr.ir/",
+        "title": "صفحه نخست - پرتال شهرداری نصیرشهر",
+        "len": 182890,
+        "generator": "Elementor 4.2.3; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap",
+        "api": "html"
+      }
+    ]
+  },
+  {
+    "key": "baghestan",
+    "name": "باغستان",
+    "province": "تهران",
+    "type": "شهرداری",
+    "candidates": [
+      {
+        "url": "https://baghestan.ir",
+        "status": 200,
+        "finalUrl": "https://baghestan.ir/",
+        "title": "شهرداری باغستان - محمدرضا شمسایی",
+        "len": 330991,
+        "generator": "Dourtal ECM",
+        "api": "html"
+      }
+    ]
+  }
+]

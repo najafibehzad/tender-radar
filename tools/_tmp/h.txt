@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Content-Type: text/csv; charset=utf-8
+Cache-Control: no-store
+Content-Disposition: attachment; filename="tenders-2026-09-24.csv"
+Date: Thu, 24 Sep 2026 11:14:41 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+

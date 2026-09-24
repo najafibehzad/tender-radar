@@ -1,0 +1,23 @@
+[
+  { "key": "fardis", "name": "فردیس", "province": "البرز", "type": "شهرداری", "urls": ["https://shahrdarifardis.ir"] },
+  { "key": "qods", "name": "شهر قدس", "province": "تهران", "type": "شهرداری", "urls": ["https://shahreqods.ir", "https://shahrdariqods.ir", "https://qods.ir"] },
+  { "key": "karaj", "name": "کرج", "province": "البرز", "type": "شهرداری", "urls": ["https://karaj.ir", "https://shahrdarikaraj.ir"] },
+  { "key": "shahriar", "name": "شهریار", "province": "تهران", "type": "شهرداری", "urls": ["https://shahriar.ir", "https://shahrdarishahriar.ir"] },
+  { "key": "robatkarim", "name": "رباط کریم", "province": "تهران", "type": "شهرداری", "urls": ["https://robatkarim.ir", "https://shahrdarirobatkarim.ir"] },
+  { "key": "islamshahr", "name": "اسلامشهر", "province": "تهران", "type": "شهرداری", "urls": ["https://islamshahr.ir", "https://shahrdari-eslamshahr.ir"] },
+  { "key": "malard", "name": "ملارد", "province": "تهران", "type": "شهرداری", "urls": ["https://malard.ir", "https://shahrdarimalard.ir"] },
+  { "key": "savojbolagh", "name": "ساوجبلاغ", "province": "البرز", "type": "شهرداری", "urls": ["https://savojbolagh.ir", "https://shahrdarisavojbolagh.ir"] },
+  { "key": "nazarabad", "name": "نظرآباد", "province": "البرز", "type": "شهرداری", "urls": ["https://nazarabad.ir", "https://shahrdarinazarabad.ir"] },
+  { "key": "eshtehard", "name": "اشتهارد", "province": "البرز", "type": "شهرداری", "urls": ["https://eshtehard.ir", "https://shahrdarieshtehard.ir"] },
+  { "key": "tehran", "name": "تهران", "province": "تهران", "type": "شهرداری", "urls": ["https://tehran.ir"] },
+  { "key": "pardis", "name": "پردیس", "province": "تهران", "type": "شهرداری", "urls": ["https://pardis.ir", "https://shahrdaripardis.ir"] },
+  { "key": "pakdasht", "name": "پاکدشت", "province": "تهران", "type": "شهرداری", "urls": ["https://pakdasht.ir", "https://shahrdaripakdasht.ir"] },
+  { "key": "varamin", "name": "ورامین", "province": "تهران", "type": "شهرداری", "urls": ["https://varamin.ir", "https://shahrdarivaramin.ir"] },
+  { "key": "qarchak", "name": "قرچک", "province": "تهران", "type": "شهرداری", "urls": ["https://qarchak.ir", "https://shahrdariqarchak.ir"] },
+  { "key": "pishva", "name": "پیشوا", "province": "تهران", "type": "شهرداری", "urls": ["https://pishva.ir", "https://shahrdaripishva.ir"] },
+  { "key": "baharestan", "name": "بهارستان", "province": "تهران", "type": "شهرداری", "urls": ["https://baharestan.ir", "https://shahrdaribaharestan.ir"] },
+  { "key": "shahriyar-note", "name": "چهاردانگه", "province": "تهران", "type": "شهرداری", "urls": ["https://chahardangeh.ir"] },
+  { "key": "dehyari", "name": "دهیاری‌های کشور", "province": "کشور", "type": "دهیاری", "urls": ["https://dehyari.ir", "https://www.dehyariha.ir", "https://dehyari.moi.ir"] },
+  { "key": "ostan-alborz", "name": "استانداری البرز", "province": "البرز", "type": "استانداری", "urls": ["https://alborz.ir", "https://ostandalborz.ir"] },
+  { "key": "ostan-tehran", "name": "استانداری تهران", "province": "تهران", "type": "استانداری", "urls": ["https://tehran.ostan.ir", "https://ostan-tehran.ir"] }
+]

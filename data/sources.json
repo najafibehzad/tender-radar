@@ -1,0 +1,673 @@
+{
+  "version": 1,
+  "updatedAt": "2026-09-24T15:44:13.564Z",
+  "settings": {
+    "scanIntervalMinutes": 20,
+    "requestTimeoutMs": 30000,
+    "maxItemsPerSource": 30,
+    "lookbackDays": 20,
+    "autoScanOnStart": true,
+    "targetOnly": false,
+    "wpMaxQueries": 5
+  },
+  "topics": [
+    {
+      "id": "asphalt",
+      "name": "آسفالت و قیر",
+      "words": [
+        "آسفالت",
+        "اسفالت",
+        "قیر",
+        "روکش",
+        "لکه گیری",
+        "لکهگیری",
+        "تراش",
+        "فینیشر"
+      ]
+    },
+    {
+      "id": "jedval",
+      "name": "جدول‌گذاری",
+      "words": [
+        "جدول گذاری",
+        "جدولگذاری",
+        "جدول",
+        "کانیوو",
+        "مهار جدول"
+      ]
+    },
+    {
+      "id": "kafpoosh",
+      "name": "کفپوش و فرش",
+      "words": [
+        "کفپوش",
+        "فرش",
+        "موزاییک",
+        "سنگ فرش",
+        "سنگفرش",
+        "پیاده رو",
+        "پیادهرو"
+      ]
+    },
+    {
+      "id": "takhrib",
+      "name": "تخریب و بازسازی",
+      "words": [
+        "تخریب",
+        "بازسازی",
+        "مرمت",
+        "بهسازی",
+        "احیا",
+        "نوسازی"
+      ]
+    },
+    {
+      "id": "sakhteman",
+      "name": "ساختمان و ابنیه",
+      "words": [
+        "ساختمان",
+        "ابنیه",
+        "احداث",
+        "اسکلت",
+        "سفت کاری",
+        "نازک کاری",
+        "سقف",
+        "دیوار",
+        "بنا"
+      ]
+    },
+    {
+      "id": "park",
+      "name": "پارک و فضای سبز",
+      "words": [
+        "پارک",
+        "بوستان",
+        "فضای سبز",
+        "محوطه سبز",
+        "گلستان",
+        "درخت",
+        "چمن",
+        "آبیاری",
+        "نهال"
+      ]
+    },
+    {
+      "id": "zirsazi",
+      "name": "زیرسازی و معابر",
+      "words": [
+        "زیرسازی",
+        "زیر سازی",
+        "خاکبرداری",
+        "خاک ریزی",
+        "خاکریزی",
+        "کانال",
+        "جوی",
+        "بهسازی معابر"
+      ]
+    },
+    {
+      "id": "lolekeshi",
+      "name": "آب و فاضلاب",
+      "words": [
+        "لوله",
+        "فاضلاب",
+        "آب رسانی",
+        "آبرسانی",
+        "شبکه آب",
+        "پلی اتیلن",
+        "کانال فاضلاب"
+      ]
+    },
+    {
+      "id": "bargh",
+      "name": "برق و روشنایی",
+      "words": [
+        "برق",
+        "روشنایی",
+        "چراغ",
+        "پایه چراغ",
+        "کابل",
+        "ترانس",
+        "تیر برق",
+        "الکتریک"
+      ]
+    },
+    {
+      "id": "hambazi",
+      "name": "خط‌کشی و علائم",
+      "words": [
+        "خط کشی",
+        "خطکشی",
+        "علائم",
+        "ایمنی",
+        "گاردریل",
+        "نیوجرسی",
+        "سرعتگیر",
+        "سرعت گیر"
+      ]
+    },
+    {
+      "id": "khodro",
+      "name": "خودرو و ماشین‌آلات",
+      "words": [
+        "خودرو",
+        "ماشین آلات",
+        "ماشینآلات",
+        "لودر",
+        "بیل مکانیکی",
+        "کامیون",
+        "خاور",
+        "جرثقیل"
+      ]
+    },
+    {
+      "id": "khadamat",
+      "name": "خدمات و نظافت",
+      "words": [
+        "نظافت",
+        "خدمات شهری",
+        "پسماند",
+        "زباله",
+        "رفت و روب",
+        "باغبانی",
+        "حراست",
+        "تامین نیرو"
+      ]
+    },
+    {
+      "id": "it",
+      "name": "فناوری اطلاعات",
+      "words": [
+        "نرم افزار",
+        "سامانه",
+        "رایانه",
+        "کامپیوتر",
+        "فناوری اطلاعات",
+        "دوربین",
+        "نظارت تصویری",
+        "اتوماسیون"
+      ]
+    },
+    {
+      "id": "tasisat",
+      "name": "تاسیسات مکانیکی",
+      "words": [
+        "تاسیسات",
+        "تأسیسات",
+        "موتورخانه",
+        "چیلر",
+        "هواساز",
+        "شوفاژ",
+        "گرمایش",
+        "سرمایش",
+        "گازرسانی"
+      ]
+    },
+    {
+      "id": "chapar",
+      "name": "چاپ و تبلیغات",
+      "words": [
+        "چاپ",
+        "تبلیغات",
+        "بنر",
+        "بیرق",
+        "تابلو",
+        "طراحی"
+      ]
+    },
+    {
+      "id": "bime",
+      "name": "بیمه و خدمات مالی",
+      "words": [
+        "بیمه",
+        "حسابرسی",
+        "مشاوره",
+        "مالی",
+        "بانکی"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "setadiran",
+      "name": "ستاد ایران — تابلوی اعلانات مرکزی",
+      "city": "",
+      "province": "",
+      "type": "دولتی",
+      "url": "https://www.setadiran.ir",
+      "adapter": "setadiran",
+      "_disabled": false,
+      "verified": true,
+      "setadMaxPages": 25,
+      "note": "سامانهٔ تدارکات الکترونیکی دولت — کدهای شهر از پروژهٔ دیده‌بان (تأییدشده). مسیر API + مسیر پشتیبان HTML (تابلوی عمومی etend). ⚠️ دسترسی فقط از داخل ایران.",
+      "setadCities": [
+        { "province": "البرز", "city": "کرج", "id": "99" },
+        { "province": "البرز", "city": "فردیس", "id": "444" },
+        { "province": "تهران", "city": "قدس", "id": "369" },
+        { "province": "تهران", "city": "شهریار", "id": "206" },
+        { "province": "تهران", "city": "رباط کریم", "id": "258" },
+        { "province": "تهران", "city": "تهران", "id": "19" }
+      ],
+      "setadKinds": ["مناقصه"],
+      "setadHtmlFallback": [
+        "https://etend.setadiran.ir/etend/index.action",
+        "https://etend.setadiran.ir/etend/centralboard-execute.action"
+      ],
+      "maxItems": 400
+    },
+    {
+      "id": "dehyari-tehran",
+      "name": "سامانه امور قراردادهای دهیاری‌های استان تهران",
+      "city": "",
+      "province": "تهران",
+      "type": "دهیاری",
+      "url": "http://93.114.107.36:81",
+      "adapter": "odata",
+      "_disabled": false,
+      "verified": true,
+      "odataPath": "/OData/deals",
+      "odataTop": 300,
+      "detailPattern": "#/deals/details/{id}",
+      "note": "سامانهٔ قراردادها و مناقصات شهرداری‌ها و دهیاری‌های استان تهران — رابط OData"
+    },
+    {
+      "id": "fardis",
+      "name": "شهرداری فردیس",
+      "city": "فردیس",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://shahrdarifardis.ir",
+      "adapter": "wordpress",
+      "_disabled": false,
+      "verified": true,
+      "note": "پایگاه خبری مدیریت شهری فردیس — REST API وردپرس فعال"
+    },
+    {
+      "id": "chahardangeh",
+      "name": "شهرداری چهاردانگه",
+      "city": "چهاردانگه",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://chahardangeh.ir",
+      "adapter": "wordpress",
+      "_disabled": false,
+      "verified": true,
+      "note": "REST وردپرس + صفحهٔ مناقصات (نوع برگه، نه نوشته)",
+      "pages": [
+        "https://chahardangeh.ir/%d9%85%d9%86%d8%a7%d9%82%d8%b5%d8%a7%d8%aa/"
+      ]
+    },
+    {
+      "id": "shahriar",
+      "name": "شهرداری شهریار",
+      "city": "شهریار",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://shahriarcity.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "pages": [
+        "https://shahriarcity.ir/fa-IR/DouranPortal/5223/page/%D9%85%D9%86%D8%A7%D9%82%D8%B5%D8%A7%D8%AA-%D9%88-%D9%85%D8%B2%D8%A7%DB%8C%D8%AF%D8%A7%D8%AA"
+      ],
+      "note": "سامانه دورتال — صفحهٔ اختصاصی مناقصات و مزایدات"
+    },
+    {
+      "id": "robatkarim",
+      "name": "شهرداری رباط کریم",
+      "city": "رباط کریم",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "http://robatkarim.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "pages": [
+        "http://robatkarim.ir/HomePage.aspx?TabID=4948&Site=DouranPortal&Lang=fa-IR"
+      ],
+      "note": "سامانه دورتال — TabID=4948 مناقصه و مزایده"
+    },
+    {
+      "id": "qods",
+      "name": "شهرداری قدس",
+      "city": "شهر قدس",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://shahrdariqods.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": "سامانه دورتال"
+    },
+    {
+      "id": "baharestan",
+      "name": "شهرداری بهارستان",
+      "city": "بهارستان",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://baharestan.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": "سامانه دورتال"
+    },
+    {
+      "id": "malard",
+      "name": "شهرداری ملارد",
+      "city": "ملارد",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://malard.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "eshtehard",
+      "name": "شهرداری اشتهارد",
+      "city": "اشتهارد",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://eshtehard.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": "سامانهٔ الکترونیکی شهرداری اشتهارد"
+    },
+    {
+      "id": "gharchak",
+      "name": "شهرداری قرچک",
+      "city": "قرچک",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://www.gharchak.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "pakdasht",
+      "name": "شهرداری پاکدشت",
+      "city": "پاکدشت",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://pakdasht.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "karaj",
+      "name": "شهرداری کرج",
+      "city": "کرج",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://karaj.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": false,
+      "note": "پرتال شهرداری کرج — از داخل ایران در دسترس است (از IP خارجی بسته می‌شود)"
+    },
+    {
+      "id": "karajemrouz",
+      "name": "پایگاه خبری مدیریت شهری کرج",
+      "city": "کرج",
+      "province": "البرز",
+      "type": "خبری",
+      "url": "https://www.karajemrouz.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": "اخبار و آگهی‌های شهرداری کرج"
+    },
+    {
+      "id": "tehran",
+      "name": "شهرداری تهران",
+      "city": "تهران",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://tehran.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": false,
+      "note": "از داخل ایران در دسترس است (از IP خارجی بسته می‌شود)"
+    },
+    {
+      "id": "eslamshahr",
+      "name": "شهرداری اسلامشهر",
+      "city": "اسلامشهر",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://www.eslamshahr.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": false,
+      "note": "صفحهٔ مناقصات و مزایدات: /s/mfasuZ"
+    },
+    {
+      "id": "varamin",
+      "name": "شهرداری ورامین",
+      "city": "ورامین",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://evaramin.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": false,
+      "note": ""
+    },
+    {
+      "id": "taleghan",
+      "name": "شهرداری طالقان",
+      "city": "طالقان",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://taleghan.ir",
+      "adapter": "wordpress",
+      "_disabled": true,
+      "verified": true,
+      "note": "REST API وردپرس فعال — تأییدشده با ۵ آگهی مناقصه"
+    },
+    {
+      "id": "firuzkuh",
+      "name": "شهرداری فیروزکوه",
+      "city": "فیروزکوه",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://firuzkuh.ir",
+      "adapter": "wordpress",
+      "_disabled": true,
+      "verified": true,
+      "note": "REST API وردپرس فعال — تأییدشده با ۵ آگهی مناقصه"
+    },
+    {
+      "id": "nasimshahr",
+      "name": "شهرداری نسیم‌شهر",
+      "city": "نسیم شهر",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://nasimshahr.ir",
+      "adapter": "wordpress",
+      "_disabled": false,
+      "verified": true,
+      "note": "REST API وردپرس فعال"
+    },
+    {
+      "id": "hashtgerd",
+      "name": "شهرداری هشتگرد",
+      "city": "هشتگرد",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://hashtgerd.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": "پرتال شهرداری هشتگرد"
+    },
+    {
+      "id": "kamalshahr",
+      "name": "شهرداری کمال‌شهر",
+      "city": "کمالشهر",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://kamalshahr.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "damavand",
+      "name": "شهرداری دماوند",
+      "city": "دماوند",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://damavand.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "shahedshahr",
+      "name": "شهرداری شاهدشهر",
+      "city": "شاهدشهر",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://shahedshahr.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "nasirshahr",
+      "name": "شهرداری نصیرشهر",
+      "city": "نصیرشهر",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://nasirshahr.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": "صفحه‌های جستجوی مناقصه/مزایده/استعلام (وردپرس)",
+      "pages": [
+        "https://nasirshahr.ir/?s=%D9%85%D9%86%D8%A7%D9%82%D8%B5%D9%87",
+        "https://nasirshahr.ir/?s=%D9%85%D8%B2%D8%A7%DB%8C%D8%AF%D9%87",
+        "https://nasirshahr.ir/?s=%D8%A7%D8%B3%D8%AA%D8%B9%D9%84%D8%A7%D9%85"
+      ]
+    },
+    {
+      "id": "baghestan",
+      "name": "شهرداری باغستان",
+      "city": "باغستان",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://baghestan.ir",
+      "adapter": "html",
+      "_disabled": false,
+      "verified": true,
+      "note": ""
+    },
+    {
+      "id": "pardis",
+      "name": "شهرداری پردیس",
+      "city": "پردیس",
+      "province": "تهران",
+      "type": "شهرداری",
+      "url": "https://shahrdaripardis.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": false,
+      "note": "نشانی نیازمند تأیید — با ابزار «شناسایی» بررسی کنید"
+    },
+    {
+      "id": "savojbolagh",
+      "name": "شهرداری ساوجبلاغ",
+      "city": "ساوجبلاغ",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://shahrdarisavojbolagh.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": false,
+      "note": "نشانی نیازمند تأیید"
+    },
+    {
+      "id": "nazarabad",
+      "name": "شهرداری نظرآباد",
+      "city": "نظرآباد",
+      "province": "البرز",
+      "type": "شهرداری",
+      "url": "https://shahrdarinazarabad.ir",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": false,
+      "note": "نشانی نیازمند تأیید"
+    },
+    {
+      "id": "nabzepeyman",
+      "name": "نبض پیمان (تجمیع‌کننده کشوری)",
+      "city": "",
+      "province": "کشور",
+      "type": "تجمیع‌کننده",
+      "url": "https://nabzepeyman.ir",
+      "adapter": "rss",
+      "_disabled": true,
+      "verified": true,
+      "feeds": [
+        "https://nabzepeyman.ir/rss/feed.xml",
+        "https://nabzepeyman.ir/rss/%D9%85%D9%86%D8%A7%D9%82%D8%B5%D8%A7%D8%AA.xml",
+        "https://nabzepeyman.ir/rss/%D9%85%D8%B2%D8%A7%DB%8C%D8%AF%D8%A7%D8%AA.xml"
+      ],
+      "note": "فید RSS سراسری — شامل شهرداری‌ها و دهیاری‌های کل کشور با ذکر سازمان و موقعیت — به‌درخواست کاربر غیرفعال شد (پوشش کشوری؛ فقط تهران و البرز لازم است)."
+    },
+    {
+      "id": "parsnamad",
+      "name": "پارس‌نماد",
+      "city": "",
+      "province": "کشور",
+      "type": "تجمیع‌کننده",
+      "url": "https://www.parsnamaddata.com",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "pages": [
+        "https://www.parsnamaddata.com/",
+        "https://www.parsnamaddata.com/tenders/%D9%85%D9%86%D8%A7%D9%82%D8%B5%D9%87-%D8%A7%D9%85%D8%B1%D9%88%D8%B2"
+      ],
+      "note": "پایگاه مناقصات کشور — به‌درخواست کاربر غیرفعال شد (پوشش کشوری؛ فقط تهران و البرز لازم است)."
+    },
+    {
+      "id": "ariatender",
+      "name": "آریاتندر",
+      "city": "",
+      "province": "کشور",
+      "type": "تجمیع‌کننده",
+      "url": "https://ariatender.net",
+      "adapter": "html",
+      "_disabled": true,
+      "verified": true,
+      "pages": [
+        "https://ariatender.net/%D9%85%D9%86%D8%A7%D9%82%D8%B5%D8%A7%D8%AA"
+      ],
+      "note": "سامانه هوشمند مناقصات و مزایدات کشور — به‌درخواست کاربر غیرفعال شد (پوشش کشوری؛ فقط تهران و البرز لازم است)."
+    },
+    {
+      "id": "didehban",
+      "name": "ستاد ایران — از دیده‌بان (localhost:3725)",
+      "adapter": "didehban",
+      "url": "http://127.0.0.1:3725",
+      "didehbanUrl": "http://127.0.0.1:3725",
+      "didehbanTrigger": false,
+      "timeoutMs": 120000,
+      "maxItems": 200,
+      "type": "ستاد",
+      "province": "تهران/البرز",
+      "_disabled": false
+    }
+  ]
+}
