@@ -1,0 +1,14 @@
+# Temporary / cache files
+tools/_tmp/
+data/cache.json
+data/scan-log.json
+node_modules/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
