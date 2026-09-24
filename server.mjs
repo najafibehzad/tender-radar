@@ -110,12 +110,17 @@ function filterItems(items, q) {
   return out;
 }
 
-function buildFacets(items) {
-  const facet = (key, normalize) => {
+function buildFacets(items, registrySources) {
+  // فقط منابع فعال (حاضر در registry و غیرخاموش)
+  const activeIds = new Set((registrySources || []).filter(s => !s._disabled).map(s => s.id));
+  const activeNames = new Set((registrySources || []).filter(s => !s._disabled).map(s => s.name));
+  const facet = (key, normalize, nameKey) => {
     const m = new Map();
     for (const it of items) {
       let v = it[key];
       if (!v) continue;
+      // فقط آیتم‌هایی از منابع فعال
+      if (nameKey && !activeNames.has(v)) continue;
       if (normalize) v = normalize(v);
       m.set(v, (m.get(v) || 0) + 1);
     }
@@ -123,7 +128,7 @@ function buildFacets(items) {
   };
   // یکسان‌سازی نام شهر: حذف پیشوند «شهر » (مثلاً «شهر قدس» → «قدس»)
   const normCity = (c) => c.replace(/^شهر\s+/, '');
-  return { city: facet('city', normCity), province: facet('province'), kind: facet('kind'), source: facet('sourceName') };
+  return { city: facet('city', normCity), province: facet('province'), kind: facet('kind'), source: facet('sourceName', null, true) };
 }
 
 // ---------- پاسخ‌دهی ----------
@@ -206,6 +211,7 @@ const server = http.createServer(async (req, res) => {
     // --- آیتم‌ها ---
     if (p === '/api/items' && req.method === 'GET') {
       const cache = loadCache();
+      const reg = loadRegistry();
       const items = filterItems(cache.items || [], q);
       const limit = Math.min(Number(q.get('limit') || 500), 2000);
       const offset = Number(q.get('offset') || 0);
@@ -214,7 +220,7 @@ const server = http.createServer(async (req, res) => {
         total: items.length,
         offset, limit,
         items: items.slice(offset, offset + limit),
-        facets: buildFacets(cache.items || []),
+        facets: buildFacets(cache.items || [], reg.sources),
         scannedAt: cache.scannedAt,
       });
     }
