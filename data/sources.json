@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24T17:03:22.289Z",
+  "updatedAt": "2026-09-24T17:32:36.852Z",
   "settings": {
     "scanIntervalMinutes": 20,
     "requestTimeoutMs": 30000,
-    "maxItemsPerSource": 100,
+    "maxItemsPerSource": 200,
     "lookbackDays": 20,
     "autoScanOnStart": true,
     "targetOnly": false,
