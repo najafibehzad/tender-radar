@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-24T17:32:36.852Z",
+  "updatedAt": "2026-09-25T08:51:27.131Z",
   "settings": {
-    "scanIntervalMinutes": 20,
+    "scanIntervalMinutes": 240,
     "requestTimeoutMs": 30000,
     "maxItemsPerSource": 200,
     "lookbackDays": 20,
     "autoScanOnStart": true,
-    "targetOnly": false,
+    "targetOnly": true,
     "wpMaxQueries": 5
   },
   "topics": [
@@ -693,7 +693,23 @@
       "maxItems": 200,
       "type": "ستاد",
       "province": "تهران/البرز",
-      "_disabled": false
+      "_disabled": true
+    },
+    {
+      "id": "شهرداری-اندیشه-2",
+      "name": "شهرداری اندیشه",
+      "city": "",
+      "province": "",
+      "type": "شهرداری",
+      "url": "https://www.andishehcity.ir",
+      "adapter": "html",
+      "pages": [
+        "https://www.andishehcity.ir/"
+      ],
+      "_disabled": false,
+      "verified": true,
+      "note": "",
+      "addedAt": "2026-09-24T20:21:18.965Z"
     }
   ]
 }
