@@ -18,7 +18,11 @@ const state = {
   total: 0,
   facets: { city: [], province: [], kind: [], source: [] },
   filters: { q: '', topic: '', city: '', province: '', kind: '', source: '', days: '', sort: 'newest', hasDeadline: false, today: false, target: true },
-  view: 'table',
+  view: (function () {
+    try { const v = localStorage.getItem('tr-view'); if (v === 'cards' || v === 'table') return v; } catch (e) { /* */ }
+    // در موبایل پیش‌فرض «کارت» است؛ جدول پهن است و اسکرول افقی می‌خواهد
+    return window.matchMedia && window.matchMedia('(max-width: 720px)').matches ? 'cards' : 'table';
+  })(),
   scanTimer: null,
   lastScanPoll: 0,
 };
@@ -458,8 +462,11 @@ function bind() {
     $$('.viewtabs button').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
     state.view = b.dataset.view;
+    try { localStorage.setItem('tr-view', state.view); } catch (e) { /* */ }
     renderResults();
   });
+  // همگام‌سازی اولیهٔ تب فعال با نمای انتخاب‌شده (پیش‌فرض موبایل: کارت)
+  $$('.viewtabs button').forEach(x => x.classList.toggle('on', x.dataset.view === state.view));
 
   $('#btnCsv').onclick = () => { window.location = '/api/export.csv?' + queryString(); toast('در حال ساخت فایل اکسل…'); };
   $('#btnJson').onclick = () => { window.location = '/api/export.json?' + queryString(); };
