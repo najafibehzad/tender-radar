@@ -99,8 +99,12 @@ function filterItems(items, q) {
     return true;
   });
 
+  // کلید تازگی برای مرتب‌سازی: تاریخ انتشار؛ برای آگهی‌های بدون تاریخ انتشار (ستاد/etend
+  // تاریخ انتشار نمی‌دهند) تاریخ اولین مشاهده در رادار — تا آگهی‌های تازه‌کشف‌شده
+  // بالای فهرست بیایند، نه ته آن با ترتیب تصادفی اسکن.
+  const recencyKey = it => String(it.publishedISO || String(it.firstSeenAt || '').slice(0, 10) || '');
   const cmp = {
-    newest: (a, b) => String(b.publishedISO || '').localeCompare(String(a.publishedISO || '')),
+    newest: (a, b) => recencyKey(b).localeCompare(recencyKey(a)),
     oldest: (a, b) => String(a.publishedISO || 'zzz').localeCompare(String(b.publishedISO || 'zzz')),
     deadline: (a, b) => String(a.deadlineISO || 'zzz').localeCompare(String(b.deadlineISO || 'zzz')),
     city: (a, b) => String(a.city || 'zzz').localeCompare(String(b.city || 'zzz'), 'fa'),

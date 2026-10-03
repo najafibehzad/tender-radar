@@ -88,6 +88,19 @@ function topicTags(it) {
   return `<div class="tagrow">${it.topics.slice(0, 4).map(t => `<span class="badge b-topic">${esc(t)}</span>`).join('')}</div>`;
 }
 
+// سلول «انتشار»: تاریخ رسمی؛ اگر آگهی تاریخ انتشار نداشت (ستاد/etend)، تاریخ اولین
+// مشاهده در رادار با علامت ~ و توضیح — تا معلوم باشد چرا بالا/پایین فهرست است.
+const seenFa = it => {
+  if (!it.firstSeenAt) return '';
+  try { return new Date(it.firstSeenAt).toLocaleDateString('fa-IR'); } catch (e) { return ''; }
+};
+const pubCell = it => {
+  const pub = it.publishedJalali || it.publishedISO;
+  if (pub) return esc(pub);
+  const s = seenFa(it);
+  return s ? `<span class="muted" title="اولین مشاهده در رادار — تاریخ انتشار از منبع دریافت نشده">~${esc(s)}</span>` : '<span class="muted">—</span>';
+};
+
 // ---------- بارگذاری وضعیت ----------
 async function loadStatus() {
   const s = await api('/api/status');
@@ -222,7 +235,7 @@ function rowHtml(it, i) {
     <td class="nowrap">${it.city ? esc(it.city) : '<span class="muted">—</span>'}
       ${it.province && it.province !== it.city ? `<div class="muted" style="font-size:11px">${esc(it.province)}</div>` : ''}</td>
     <td class="hide-sm"><span class="badge b-src">${esc(it.sourceName || '')}</span></td>
-    <td class="nowrap hide-sm mono">${esc(it.publishedJalali || it.publishedISO || '—')}</td>
+    <td class="nowrap hide-sm mono">${pubCell(it)}</td>
     <td class="nowrap">${deadlineCell(it)}</td>
     <td><button class="btn ghost sm" data-detail="${i}" title="جزئیات">…</button></td>
   </tr>`;
@@ -239,7 +252,7 @@ function cardHtml(it, i) {
     <div class="c-foot">
       <span>🏙 ${esc(it.city || '—')}</span>
       <span>🏛 ${esc(it.sourceName || '')}</span>
-      ${it.publishedJalali ? `<span>📅 ${esc(it.publishedJalali)}</span>` : ''}
+      ${(it.publishedJalali || it.firstSeenAt) ? `<span>📅 ${pubCell(it)}</span>` : ''}
     </div>
     <div style="display:flex;gap:6px;align-items:center">
       ${deadlineCell(it)}
@@ -259,6 +272,7 @@ function openDetail(it) {
     ['منبع', it.sourceName],
     ['نوع منبع', it.sourceType],
     ['تاریخ انتشار', it.publishedJalali || it.publishedISO || '—'],
+    ['اولین مشاهده در رادار', seenFa(it) || '—'],
     ['مهلت', it.deadlineJalali || it.deadlineISO || '—'],
     ['روز باقی‌مانده', it.daysLeft == null ? '—' : fa(it.daysLeft) + ' روز'],
     ['موضوعات', (it.topics || []).join('، ') || '—'],
