@@ -32,6 +32,10 @@
       </div>
       <div class="top-actions">
         <span id="lastScan" class="meta muted" style="font-size:12.5px"></span>
+        <button class="btn" id="btnAssistant" title="دستیار هوشمند">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/><path d="M4 15l.6 1.7L6.3 17l-1.7.6L4 19.3l-.6-1.7L1.7 17l1.7-.6z"/></svg>
+          دستیار هوشمند
+        </button>
         <button class="btn" id="btnSources" title="مدیریت شهرها و منابع">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
           شهرها و منابع
@@ -253,6 +257,86 @@
 </aside>
 
 <div id="toasts"></div>
+
+<!-- ================= دستیار هوشمند ================= -->
+<button class="ai-fab" id="aiFab" title="دستیار هوشمند مناقصات">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6z"/><path d="M18.5 15.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+  <span>دستیار</span>
+</button>
+
+<aside class="ai-panel" id="aiPanel" aria-hidden="true">
+  <header class="ai-head">
+    <div class="ai-title">
+      <span class="ai-dot" id="aiDot"></span>
+      <div>
+        <h3>دستیار هوشمند مناقصات</h3>
+        <div class="ai-sub" id="aiStatus">در حال بررسی وضعیت…</div>
+      </div>
+    </div>
+    <div class="ai-head-actions">
+      <button class="btn ghost sm" id="aiCfgBtn" title="تنظیمات هوش مصنوعی">تنظیمات</button>
+      <button class="btn ghost sm" id="aiDiagBtn" title="بررسی و رفع ایراد منابع">سلامت منابع</button>
+      <button class="btn ghost sm" id="aiClearBtn" title="گفتگوی تازه">تازه</button>
+      <button class="btn ghost sm" id="aiCloseBtn" title="بستن">×</button>
+    </div>
+  </header>
+
+  <div class="ai-chips" id="aiChips"></div>
+
+  <div class="ai-body" id="aiBody"></div>
+
+  <footer class="ai-foot">
+    <div class="ai-opts">
+      <label class="toggle-lbl"><input type="checkbox" id="aiLive" checked> به‌روزرسانی زندهٔ منابع</label>
+      <label class="toggle-lbl"><input type="checkbox" id="aiAi" checked> پاسخ با مدل زبانی</label>
+    </div>
+    <div class="ai-input">
+      <textarea id="aiText" rows="1" placeholder="مثلاً: مناقصه آسفالت کرج این هفته — یا: منابع چه ایرادی دارند؟"></textarea>
+      <button class="btn primary" id="aiSend" title="ارسال">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12l16-8-6 8 6 8z"/></svg>
+      </button>
+    </div>
+  </footer>
+</aside>
+
+<!-- مودال تنظیمات دستیار -->
+<div class="modal-bg" id="aiCfgModal">
+  <div class="modal" style="max-width:560px">
+    <div class="modal-head"><h3>تنظیمات دستیار هوشمند</h3><button class="btn ghost sm" data-close="aiCfgModal">بستن</button></div>
+    <div class="modal-body">
+      <label class="toggle-lbl" style="margin-bottom:10px"><input type="checkbox" id="cEnabled"> استفاده از مدل زبانی</label>
+      <div class="formgrid">
+        <div class="field">
+          <label>نشانی دروازه (OpenAI-compatible)</label>
+          <input id="cBase" dir="ltr" placeholder="http://localhost:20128/v1">
+        </div>
+        <div class="field">
+          <label>کلید API</label>
+          <input id="cKey" dir="ltr" placeholder="خالی = کشف خودکار از درگاه محلی">
+        </div>
+        <div class="field wide">
+          <label>زنجیرهٔ مدل‌ها (با کاما — به ترتیب اولویت)</label>
+          <input id="cModels" dir="ltr" placeholder="pt/ling-3.0-flash:free, af/gpt-oss-20b">
+        </div>
+        <div class="field">
+          <label>مهلت هر درخواست (ms)</label>
+          <input type="number" id="cTimeout" min="10000" max="300000" step="5000">
+        </div>
+        <div class="field">
+          <label>حداکثر توکن پاسخ</label>
+          <input type="number" id="cTokens" min="200" max="4000" step="100">
+        </div>
+      </div>
+      <div id="cHealth" class="ai-health"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" id="cTest">آزمون اتصال</button>
+      <button class="btn primary" id="cSave">ذخیره</button>
+    </div>
+  </div>
+</div>
+
 <script src="/app.js"></script>
+<script src="/assistant.js"></script>
 </body>
 </html>

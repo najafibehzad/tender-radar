@@ -10,6 +10,9 @@ import { scanAll } from './lib/scanner.mjs';
 import { detectSource, normalizeUrl } from './lib/detect.mjs';
 import { foldForSearch, normalizeFa, faNum, todayTehran, daysUntil, DEFAULT_TOPICS } from './lib/text.mjs';
 import { provinceOf, isKnownCity } from './lib/cities.mjs';
+import { runAssistant, runActions } from './lib/assistant.mjs';
+import { diagnose } from './lib/diagnose.mjs';
+import { health as aiHealth, loadConfig as loadAiConfig, saveConfig as saveAiConfig, invalidateHealth } from './lib/ai.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PUBLIC = path.join(HERE, 'public');
@@ -33,12 +36,15 @@ async function runScan(opts = {}) {
   try {
     const res = await scanAll(reg, {
       onlySourceIds: opts.onlySourceIds || null,
-      onProgress: p => { scanState.done = p.done; scanState.total = p.total; scanState.current = p.source; scanState.items += p.count; },
+      onProgress: p => {
+        scanState.done = p.done; scanState.total = p.total; scanState.current = p.source; scanState.items += p.count;
+        if (typeof opts.onProgress === 'function') { try { opts.onProgress(p); } catch { /* بی‌اهمیت */ } }
+      },
     });
     saveScanResult(res, opts.onlySourceIds || null);
     appendLog({ at: res.scannedAt, total: res.stats.total, ok: res.sourcesOk, failed: res.sourcesFailed, ms: res.durationMs, partial: !!opts.onlySourceIds });
     scanState.lastResult = { total: res.stats.total, sourcesOk: res.sourcesOk, sourcesFailed: res.sourcesFailed, durationMs: res.durationMs };
-    return { ok: true, ...scanState.lastResult };
+    return { ok: true, ...scanState.lastResult, scannedNow: (res.items || []).length };
   } catch (e) {
     scanState.error = String(e && e.message || e);
     return { ok: false, error: scanState.error };
@@ -156,6 +162,35 @@ async function readBody(req) {
   const raw = Buffer.concat(chunks).toString('utf8');
   if (!raw) return {};
   try { return JSON.parse(raw); } catch { return {}; }
+}
+
+// ---------- جریان رویداد (SSE) ----------
+function sseStart(res) {
+  res.writeHead(200, {
+    'Content-Type': 'text/event-stream; charset=utf-8',
+    'Cache-Control': 'no-cache, no-transform',
+    'Connection': 'keep-alive',
+    'X-Accel-Buffering': 'no',
+  });
+  res.write(': connected\n\n');
+}
+function sseSend(res, obj) {
+  try { res.write(`data: ${JSON.stringify(obj)}\n\n`); } catch { /* قطع اتصال */ }
+}
+
+/** زمینهٔ مشترک ابزارهای دستیار */
+function assistantCtx() {
+  return {
+    registry: loadRegistry(),
+    cache: loadCache(),
+    reloadRegistry: () => loadRegistry(),
+    reloadCache: () => loadCache(),
+    saveRegistry: (r) => saveRegistry(r),
+    detectSource,
+    runScan,
+    scheduleInterval,
+    isScanning: () => !!scanState.running,
+  };
 }
 
 // ---------- CSV ----------
@@ -422,6 +457,94 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (p === '/api/health') return sendJson(res, { ok: true, ts: new Date().toISOString(), scan: scanState });
+
+    // ================= دستیار هوشمند =================
+
+    // گفت‌وگو (جریان رویداد)
+    if (p === '/api/assistant' && req.method === 'POST') {
+      const body = await readBody(req);
+      const text = normalizeFa(body.text || '').trim();
+      if (!text) return sendJson(res, { ok: false, error: 'متن درخواست لازم است' }, 400);
+      sseStart(res);
+      let closed = false;
+      req.on('close', () => { closed = true; });
+      const emit = ev => { if (!closed) sseSend(res, ev); };
+      try {
+        const r = await runAssistant({
+          text,
+          opts: {
+            fresh: body.fresh,
+            noAi: body.noAi,
+            diagnose: body.diagnose,
+            freshMinutes: body.freshMinutes,
+          },
+          ctx: assistantCtx(),
+          emit,
+        });
+        emit({ type: 'final', answer: r.answer, meta: r.meta });
+      } catch (e) {
+        emit({ type: 'error', error: String(e && e.message || e) });
+      }
+      if (!closed) res.end();
+      return;
+    }
+
+    // سلامت دروازهٔ هوش مصنوعی
+    if (p === '/api/assistant/health' && req.method === 'GET') {
+      const h = await aiHealth(q.get('force') === '1');
+      return sendJson(res, { ok: true, ...h });
+    }
+
+    // تنظیمات هوش مصنوعی
+    if (p === '/api/assistant/config' && req.method === 'GET') {
+      const cfg = loadAiConfig();
+      return sendJson(res, { ok: true, config: { ...cfg, apiKey: cfg.apiKey ? cfg.apiKey.slice(0, 10) + '…' : '' }, hasKey: !!cfg.apiKey });
+    }
+    if (p === '/api/assistant/config' && req.method === 'POST') {
+      const b = await readBody(req);
+      const patch = {};
+      if (b.enabled !== undefined) patch.enabled = !!b.enabled;
+      if (b.baseUrl !== undefined) patch.baseUrl = String(b.baseUrl).replace(/\/+$/, '');
+      if (b.apiKey !== undefined && b.apiKey !== '' && !String(b.apiKey).includes('…')) patch.apiKey = String(b.apiKey);
+      if (Array.isArray(b.models)) patch.models = b.models.map(m => String(m).trim()).filter(Boolean);
+      if (b.timeoutMs !== undefined) patch.timeoutMs = Math.min(300000, Math.max(10000, Number(b.timeoutMs) || 90000));
+      if (b.maxTokens !== undefined) patch.maxTokens = Math.min(4000, Math.max(200, Number(b.maxTokens) || 1400));
+      if (b.temperature !== undefined) patch.temperature = Math.min(1.5, Math.max(0, Number(b.temperature) || 0.2));
+      const cfg = saveAiConfig(patch);
+      invalidateHealth();
+      const h = await aiHealth(true);
+      return sendJson(res, { ok: true, config: { ...cfg, apiKey: cfg.apiKey ? cfg.apiKey.slice(0, 10) + '…' : '' }, health: h });
+    }
+
+    // تشخیص ایراد منابع
+    if (p === '/api/assistant/diagnose' && req.method === 'POST') {
+      const d = diagnose(loadRegistry(), loadCache());
+      return sendJson(res, { ok: true, report: d });
+    }
+
+    // اجرای اقدام‌های درمان (جریان رویداد)
+    if (p === '/api/assistant/action' && req.method === 'POST') {
+      const body = await readBody(req);
+      let actions = Array.isArray(body.actions) ? body.actions : [];
+      if (body.mode === 'auto') {
+        const d = diagnose(loadRegistry(), loadCache());
+        actions = d.actions.filter(a => a.severity === 'high').slice(0, 8);
+        if (!actions.length) actions = d.actions.slice(0, 5);
+      }
+      if (!actions.length) return sendJson(res, { ok: false, error: 'اقدامی برای اجرا نیست' }, 400);
+      sseStart(res);
+      let closed = false;
+      req.on('close', () => { closed = true; });
+      const emit = ev => { if (!closed) sseSend(res, ev); };
+      try {
+        const results = await runActions(actions, assistantCtx(), emit);
+        emit({ type: 'repair-done', results });
+      } catch (e) {
+        emit({ type: 'error', error: String(e && e.message || e) });
+      }
+      if (!closed) res.end();
+      return;
+    }
 
     // --- فایل‌های ایستا ---
     let rel = p === '/' ? '/index.html' : p;

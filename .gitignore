@@ -5,6 +5,10 @@ data/scan-log.json
 node_modules/
 *.log
 
+# تنظیمات محلی هوش مصنوعی — حاوی کلید درگاه محلی است، نباید منتشر شود
+data/ai-config.json
+data/history.json
+
 # OS files
 .DS_Store
 Thumbs.db
